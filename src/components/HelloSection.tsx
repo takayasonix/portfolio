@@ -13,7 +13,7 @@ export default function HelloSection() {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
                          {/* 左側：画像 */}
                <div className="flex items-center justify-center">
-                 <div className="w-full aspect-video bg-gradient-to-br from-gray-100 to-slate-200 rounded-2xl shadow-xl border border-white/50 overflow-hidden">
+                 <div className="w-full aspect-video md:aspect-[4/3] bg-gradient-to-br from-gray-100 to-slate-200 rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300">
                    <Image
                      src="/takayaso_about_image.jpg"
                      alt="About画像"
@@ -26,10 +26,9 @@ export default function HelloSection() {
           
           {/* 右側：テキストカード */}
           <div className="flex items-center justify-center">
-            <div className="w-full aspect-video bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/50 flex flex-col justify-center">
-              <h3 className="text-xl font-semibold text-gray-800 mb-3">
-              </h3>
-              <p className="text-base text-gray-700 leading-relaxed">
+            <div className="w-full aspect-video md:aspect-[4/3] bg-white/70 backdrop-blur-sm rounded-2xl p-5 md:p-5 shadow-xl hover:shadow-2xl flex flex-col justify-center transition-all duration-300">
+
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                 神戸大学大学院惑星学専攻を修了後、ディップ株式会社にプロダクト企画職で入社。<br />
                 バイトルでのサイト改善の経験を経て、新卒1年目からバイトルNEXTアプリのPOを担当。<br />
                 現在はバイトルアプリのグロースと運用を全部やるひとりディレクター。<br />

@@ -238,7 +238,7 @@ export default function WorksSection() {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {projects.slice(0, showAll ? projects.length : initialShowCount).map((project, index) => (
-              <div key={index} className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-white/50 flex flex-col">
+              <div key={index} className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden border border-white/50 flex flex-col transition-all duration-300">
                 <div className="relative h-48 bg-gray-200">
                   <Image
                     src={project.image}
@@ -290,7 +290,7 @@ export default function WorksSection() {
                 onClick={() => setShowAll(!showAll)}
                 className="text-gray-600 hover:text-gray-800 px-6 py-3 transition-colors duration-200 flex items-center mx-auto space-x-2"
               >
-                <span>{showAll ? '作品を隠す' : `さらに${projects.length - initialShowCount}件の作品を見る`}</span>
+                <span>{showAll ? '作品を隠す' : `さらに${projects.length - initialShowCount}件表示する`}</span>
                 <svg 
                   className={`w-5 h-5 transform transition-transform duration-200 ${showAll ? 'rotate-180' : ''}`} 
                   fill="none" 

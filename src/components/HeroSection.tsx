@@ -33,14 +33,20 @@ export default function HeroSection() {
     <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-slate-100">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-8">
-          <Image
-            src="/takayaso_profile_image.jpg"
-            alt="プロフィール画像"
-            width={200}
-            height={200}
-            className="rounded-full mx-auto mb-6 shadow-2xl border-4 border-white/50 backdrop-blur-sm"
-            priority
-          />
+          <div className="relative w-[200px] h-[200px] mx-auto mb-6">
+            <div
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-white/70 to-transparent blur-2xl"
+              aria-hidden="true"
+            />
+            <Image
+              src="/takayaso_profile_image.jpg"
+              alt="プロフィール画像"
+              width={200}
+              height={200}
+              className="rounded-full shadow-2xl hover:border-4 hover:border-white transition-all duration-300 relative z-10"
+              priority
+            />
+          </div>
         </div>
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
           大西 貴也
@@ -62,7 +68,7 @@ export default function HeroSection() {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center justify-center p-3 md:p-4 w-16 h-16 md:w-20 md:h-20 aspect-square rounded-full border border-white/50 bg-white/70 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 ${social.color} ${
+              className={`flex items-center justify-center p-3 md:p-4 w-16 h-16 md:w-20 md:h-20 aspect-square rounded-full border border-white/50 bg-white/70 backdrop-blur-sm shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ${social.color} ${
                 social.name === '脳内' ? 'w-full md:w-auto md:px-6 col-span-3 md:col-span-1' : ''
               }`}
             >

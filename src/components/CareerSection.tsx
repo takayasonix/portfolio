@@ -48,7 +48,7 @@ export default function CareerSection() {
                   {/* 右側：カード */}
                   <div className="flex-1">
                     {/* スマホ：画像の上にテキストを重ねる */}
-                    <div className="md:hidden relative rounded-2xl shadow-xl border border-gray-200/50 overflow-hidden">
+                    <div className="md:hidden relative rounded-2xl shadow-xl hover:shadow-2xl border border-gray-200/50 overflow-hidden transition-all duration-300">
                       {/* 背景画像 */}
                       <div className="w-full h-48 relative">
                         <Image
@@ -66,11 +66,11 @@ export default function CareerSection() {
                       {/* テキスト（画像の上に重ねる） */}
                       <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
                         <div className="mb-3">
-                          <div className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-white/20 backdrop-blur-sm text-white shadow-lg">
+                          <div className="text-sm font-medium text-white/90">
                             {item.year}
                           </div>
                         </div>
-                        <h3 className="text-lg font-semibold text-white mb-2">
+                        <h3 className="text-lg font-semibold text-white mb-3">
                           {item.title}
                         </h3>
                         <p className="text-sm text-white/90 leading-relaxed">
@@ -80,16 +80,16 @@ export default function CareerSection() {
                     </div>
                     
                     {/* デスクトップ：左右分割レイアウト */}
-                    <div className="hidden md:block bg-white/20 rounded-2xl shadow-xl border border-gray-200/50 overflow-hidden">
+                    <div className="hidden md:block bg-white/20 rounded-2xl shadow-xl hover:shadow-2xl border border-gray-200/50 overflow-hidden transition-all duration-300">
                       <div className="flex">
                         {/* 左半分：テキスト */}
                         <div className="w-1/2 p-6 text-left">
                           <div className="mb-3">
-                            <div className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-gray-100/80 text-gray-800 shadow-lg">
+                            <div className="text-sm font-medium text-gray-600">
                               {item.year}
                             </div>
                           </div>
-                          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                          <h3 className="text-lg font-semibold text-gray-900 mb-3">
                             {item.title}
                           </h3>
                           <p className="text-sm text-gray-600 leading-relaxed">

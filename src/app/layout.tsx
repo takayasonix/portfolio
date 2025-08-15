@@ -15,8 +15,8 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "大西貴也 - takayaso",
-  description: "背が小さくて服が大きいプロダクトマネージャー見習いです。 好きな言葉は「サバイブ」で、ネプチューンの名倉潤が11親等の親戚。",
+  title: "Takaya Onishi - takayaso",
+  description: "背が小さくて服が大きいプロダクトマネージャー見習いです。 好きな言葉は「サバイブ」。ネプチューンの名倉潤が11親等の親戚。",
 };
 
 export default function RootLayout({

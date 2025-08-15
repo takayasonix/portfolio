@@ -22,8 +22,7 @@ const manualArticles: NoteArticle[] = [
     link: 'https://dippeople.dip-net.jp/20152/',
     pubDate: '2025-05-08T00:00:00.000Z',
     image: '/takayaso_image.jpg', // 実際に存在するファイル名に修正
-    source: 'dip people',
-    color: 'bg-gray-100 text-black' // 黒色の単色
+    source: 'dip people'
   }
 ];
 
@@ -52,8 +51,7 @@ export async function getNoteArticles(): Promise<NoteArticle[]> {
         link: item.link || '',
         pubDate: item.pubDate || new Date().toISOString(),
         image: imageUrl,
-        source: 'note',
-        color: 'bg-green-100 text-black' // noteは緑色の単色
+        source: 'note'
       };
     });
 

@@ -6,7 +6,7 @@ import CareerSection from '@/components/CareerSection';
 import HobbiesSection from '@/components/HobbiesSection';
 import WorksSection from '@/components/WorksSection';
 import ArticlesSection from '@/components/ArticlesSection';
-import ContactSection from '@/components/ContactSection';
+
 
 export default function Home() {
   return (
@@ -17,8 +17,8 @@ export default function Home() {
       <PersonalitySection />
       <CareerSection />
       <HobbiesSection />
-      <WorksSection />
       <ArticlesSection />
+      <WorksSection />
     </main>
   );
 }
