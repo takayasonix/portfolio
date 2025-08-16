@@ -11,8 +11,8 @@ export default function Navigation() {
     { name: '性格', href: '#strengths' },
     { name: '経歴', href: '#timeline' },
     { name: '趣味', href: '#interests' },
-    { name: '制作', href: '#projects' },
-    { name: '記事', href: '#notes' }
+    { name: '記事', href: '#notes' },
+    { name: '制作', href: '#projects' }
   ];
 
   const scrollToSection = (href: string) => {

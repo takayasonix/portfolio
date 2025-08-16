@@ -19,6 +19,12 @@ export default function HobbiesSection() {
       description: '大学時代に自作で3つビルドしました。左右交互打鍵に特化した、takayaso配列も自作しました。',
       icon: '⌨️',
       image: '/takayaso-keyboard.jpg'
+    },
+    {
+      title: 'Obsidian',
+      description: '記憶と思考をAIリーダブルな情報として入出力し、資産化することにハマっています。一部はこちら[brain.takayaso.com]で公開しています。',
+      icon: '📝',
+      image: '/takayaso_obsidian.jpg'
     }
   ];
 
@@ -53,12 +59,32 @@ export default function HobbiesSection() {
                     </h3>
                   </div>
                   <p className="text-xs md:text-sm text-gray-600 leading-relaxed line-clamp-3">
-                    {interest.description.split('\n').map((line, i) => (
-                      <span key={i}>
-                        {line}
-                        {i < interest.description.split('\n').length - 1 && <br />}
-                      </span>
-                    ))}
+                    {interest.description.includes('[brain.takayaso.com]') ? (
+                      <>
+                        {interest.description.split('[brain.takayaso.com]').map((part, i, arr) => (
+                          <span key={i}>
+                            {part}
+                            {i < arr.length - 1 && (
+                              <a
+                                href="https://brain.takayaso.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-600 hover:text-gray-800 underline"
+                              >
+                                こちら
+                              </a>
+                            )}
+                          </span>
+                        ))}
+                      </>
+                    ) : (
+                      interest.description.split('\n').map((line, i) => (
+                        <span key={i}>
+                          {line}
+                          {i < interest.description.split('\n').length - 1 && <br />}
+                        </span>
+                      ))
+                    )}
                   </p>
                 </div>
               </div>
