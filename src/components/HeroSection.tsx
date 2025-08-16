@@ -1,7 +1,32 @@
+'use client';
+
 import Image from 'next/image';
 import { Github, Twitter, Linkedin, Instagram, ExternalLink, Dna, File } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function HeroSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   const socialLinks = [
     {
       name: '脳内',
@@ -30,8 +55,16 @@ export default function HeroSection() {
   ];
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-slate-100">
-      <div className="container mx-auto px-4 text-center">
+    <section 
+      ref={sectionRef}
+      id="hero" 
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-slate-100"
+    >
+      <div 
+        className={`container mx-auto px-4 text-center transition-all duration-1000 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+        }`}
+      >
         <div className="mb-8">
           <div className="relative w-[200px] h-[200px] mx-auto mb-6">
             <div

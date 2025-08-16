@@ -29,7 +29,7 @@ export default function HobbiesSection() {
   const interests = [
     {
       title: '宇宙',
-      description: '「惑星の旅」「星新一」に魅了され、『宇宙兄弟』の愛読者を経て、大学院まで宇宙の研究をしていました。',
+      description: '幼少期に星新一の作品で宇宙に思いを馳せ、『宇宙兄弟』に背中を押されて、大学院まで宇宙の研究をしていました。',
       icon: '🚀',
       image: '/takayaso-space.jpg'
     },
@@ -41,7 +41,7 @@ export default function HobbiesSection() {
     },
     {
       title: '自作キーボード',
-      description: '大学時代に自作で3つビルドしました。左右交互打鍵に特化した、takayaso配列も自作しました。',
+      description: '大学時代に3つのキーボードをビルドしました。左右交互打鍵に特化した、takayaso配列も考案しました。',
       icon: '⌨️',
       image: '/takayaso-keyboard.jpg'
     },
