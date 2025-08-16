@@ -1,9 +1,43 @@
+'use client';
+
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 export default function HelloSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="about" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
-      <div className="container mx-auto px-4">
+    <section 
+      ref={sectionRef}
+      id="about" 
+      className="py-20 bg-gradient-to-br from-slate-50 to-gray-100"
+    >
+      <div 
+        className={`container mx-auto px-4 transition-all duration-1000 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+        }`}
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold text-center text-white mb-10 bg-black px-4 py-1 inline-block">
             こんにちは

@@ -1,6 +1,31 @@
+'use client';
+
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 export default function HobbiesSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   const interests = [
     {
       title: '宇宙',
@@ -22,15 +47,23 @@ export default function HobbiesSection() {
     },
     {
       title: 'Obsidian',
-      description: '記憶と思考をAIリーダブルな情報として入出力し、資産化することにハマっています。一部はこちら[brain.takayaso.com]で公開しています。',
+      description: '記憶と思考をAIリーダブルな情報として入出力し、資産化することにハマっています。一部は[brain.takayaso.com]で公開しています。',
       icon: '📝',
       image: '/takayaso_obsidian.jpg'
     }
   ];
 
   return (
-    <section id="interests" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
-      <div className="container mx-auto px-4">
+    <section 
+      ref={sectionRef}
+      id="interests" 
+      className="py-20 bg-gradient-to-br from-slate-50 to-gray-100"
+    >
+      <div 
+        className={`container mx-auto px-4 transition-all duration-1000 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+        }`}
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold text-center text-white mb-10 bg-black px-4 py-1 inline-block">
             趣味
@@ -69,7 +102,7 @@ export default function HobbiesSection() {
                                 href="https://brain.takayaso.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-600 hover:text-gray-800 underline"
+                                className="text-blue-600 hover:text-blue-800 underline"
                               >
                                 こちら
                               </a>
@@ -78,10 +111,19 @@ export default function HobbiesSection() {
                         ))}
                       </>
                     ) : (
-                      interest.description.split('\n').map((line, i) => (
+                      interest.description.split('takayaso配列').map((part, i, arr) => (
                         <span key={i}>
-                          {line}
-                          {i < interest.description.split('\n').length - 1 && <br />}
+                          {part}
+                          {i < arr.length - 1 && (
+                            <a
+                              href="https://note.com/takayasonix/n/n1ffd210aefe3"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue-600 hover:text-blue-800 underline"
+                            >
+                              takayaso配列
+                            </a>
+                          )}
                         </span>
                       ))
                     )}

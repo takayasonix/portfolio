@@ -1,16 +1,38 @@
 "use client";
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function WorksSection() {
   const [showAll, setShowAll] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const initialShowCount = 6;
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   
   const projects = [
     {
       title: 'どるふぃんずさんの撮影をしました',
-      description: 'ハモネプで対バンした縁もあり、ヨネダ2000愛さん、京極さんなどなどが所属する「どるふぃんず」さんの撮影をさせていただきました。',
+      description: 'ハモネプのご縁で、ヨネダ2000愛さんが所属する「どるふぃんず」さんの撮影・編集をさせていただきました。',
       image: '/takayaso_work_20240723.webp',
       category: '動画編集',
       date: '2024/07/23',
@@ -18,7 +40,7 @@ export default function WorksSection() {
     },
     {
       title: '『8Law LIVE 〜After Party!!!』に出演しました',
-      description: 'ハモネプで対バンした8Lawさんの主催ライブに呼んでいただきました。人生で一番楽しいライブでした。バリバリのみんなも来てくださったみなさんもサイコー！',
+      description: 'ハモネプで対バンした8Lawさんの主催ライブに呼んでいただきました。人生で一番楽しいライブでした。',
       image: '/takayaso_work_20240331.webp',
       category: 'アカペラ',
       date: '2024/03/31',
@@ -26,7 +48,7 @@ export default function WorksSection() {
     },
     {
       title: '『丸の内サディスティック / ハイカラ使節団』が公開されました',
-      description: '千本桜に続き、丸サの動画も「PLUS Unison.」さんで公開されました。ハモネプ尺なので気軽に聞いてみてくださいな。',
+      description: '千本桜に続き、丸サも公開されました。ハモネプ尺なので気軽に聞いてみてくださいな。',
       image: '/takayaso_work_20240322.webp',
       category: 'アカペラ',
       date: '2024/03/22',
@@ -34,7 +56,7 @@ export default function WorksSection() {
     },
     {
       title: 'プラユニライブ『+Universe』に出演しました',
-      description: '昨年は観客席で見ていたプラユニライブに、なんとなんと出演させていただきました。クソデカステージで1200人のお客さんに向けて歌える経験は人生で最初で最後の経験かも。',
+      description: 'プラユニライブ出演させていただきました。1200人のお客さんの前でなんて人生で最初で最後の経験でした。',
       image: '/takayaso_work_20240317.webp',
       category: 'アカペラ',
       date: '2024/03/17',
@@ -42,7 +64,7 @@ export default function WorksSection() {
     },
     {
       title: '『千本桜 / ハイカラ使節団』が公開されました',
-      description: 'ハモネプの予選で披露した千本桜を、「PLUS Unison.」さんに動画化していただきました。ハモネプとは少し違ったアレンジになっているのでぜひぜひ。',
+      description: 'ハモネプの予選で披露した千本桜が動画化。ハモネプとは少し違ったアレンジになっているのでぜひぜひ。',
       image: '/takayaso_work_20240303.webp',
       category: 'アカペラ',
       date: '2024/03/03',
@@ -50,7 +72,7 @@ export default function WorksSection() {
     },
     {
       title: '『全国ハモネプ大リーグ2024春』に出演しました',
-      description: 'ハヰカラ使節団でハモネプに出演しました。結果は予選落ち！点数もなんかドベ3！でも最高に楽しかったのでオールオッケーです！',
+      description: 'ハヰカラ使節団でハモネプに出演しました。結果は予選落ち！でも最高に楽しかったのでオールオッケーです！',
       image: '/takayaso_work_20240302.webp',
       category: 'アカペラ',
       date: '2024/03/02',
@@ -66,7 +88,7 @@ export default function WorksSection() {
     },
     {
       title: '『嵐ラブソングメドレー / Ya☆Chai☆Nayo』の動画編集をしました',
-      description: 'ガーナの2〜4年目バンド「Ya☆Chai☆Nayo」の動画編集をさせていただきました！後輩たちの思い出の作品になればと思います！',
+      description: 'ガーナの後輩バンド「Ya☆Chai☆Nayo」の動画編集を。後輩たちの思い出の作品になれば幸いです。',
       image: '/takayaso_work_20221210.webp',
       category: '動画編集',
       date: '2022/12/10',
@@ -74,7 +96,7 @@ export default function WorksSection() {
     },
     {
       title: '『I wish × Superstition - ONEDAY』の動画編集をしました',
-      description: 'おかのやともかさん（27万人）のチャンネルでアカペラ動画の編集をさせていただきました！',
+      description: 'おかのやともかさん（27万人）のチャンネルでアカペラ動画の編集をさせていただきました。',
       image: '/takayaso_work_20221111.webp',
       category: '動画編集',
       date: '2022/11/11',
@@ -82,7 +104,7 @@ export default function WorksSection() {
     },
     {
       title: '『Love so sweet / 嵐 [ Acapella Cover ]』の動画編集をしました',
-      description: 'MAVI CHANNELでのアカペラ動画を編集させていただきました。',
+      description: 'アカペラ動画を編集させていただきました。',
       image: '/takayaso_work_20220915.webp',
       category: '動画編集',
       date: '2022/09/15',
@@ -90,7 +112,7 @@ export default function WorksSection() {
     },
     {
       title: '『アカペラロマンスメドレー / ハヰカラ使節団』が公開されました',
-      description: 'PLUS Unison. さんのチャンネルで、自身が所属する「ハヰカラ使節団」の動画を作成していただきました。',
+      description: 'PLUS Unison.さんで、「ハヰカラ使節団」の卒業動画を作成していただきました。',
       image: '/takayaso_work_20220806.webp',
       category: 'アカペラ',
       date: '2022/08/06',
@@ -98,7 +120,7 @@ export default function WorksSection() {
     },
     {
       title: '『PLUS Unison. 2022卒業生メドレー』に出演しました',
-      description: 'PLUS Unison.さんの卒業生メドレーに、パーカスで出演させていただきました。すげー再生回数だ。',
+      description: 'PLUS Unison.さんの卒業生メドレーに、パーカスで出演させていただきました。',
       image: '/takayaso_work_20220331.webp',
       category: 'アカペラ',
       date: '2022/03/31',
@@ -106,7 +128,7 @@ export default function WorksSection() {
     },
     {
       title: 'Around The World (ハモネプアレンジ / ペンタゴンズver.) が配信開始されました',
-      description: 'ハモネプ出演記念で、自分たちの演奏がサブスク配信されました。Monkey Magicの「Around The World」の演奏を配信していただきました。',
+      description: 'ハモネプ出演記念でサブスク配信されました。Monkey Magicの「Around The World」です。',
       image: '/takayaso_work_20220318.webp',
       category: 'アカペラ',
       date: '2022/03/18',
@@ -130,7 +152,7 @@ export default function WorksSection() {
     },
     {
       title: 'GhannaGhanna WinterLive2021『この声に耳を傾けて』に出演しました',
-      description: '4年目冬のライブです。シェア班とチア班長として委員に関わり、PANDEMIX、ハヰカラ使節団、Meta-Montageの3バンドと4回生ステージで出演しました。',
+      description: '4年目冬のライブはシェア班とチア班長として委員に関わり、PANDEMIX、ハヰカラ使節団、Meta-Montageの3バンドと4回生ステージで出演しました。',
       image: '/takayaso_work_20211212.webp',
       category: 'アカペラ',
       date: '2021/12/12',
@@ -138,7 +160,7 @@ export default function WorksSection() {
     },
     {
       title: 'A cappella Spirits 2021 4年生全国大会で優勝しました（ハヰカラ使節団）',
-      description: 'ハヰカラ使節団で4年生全国大会、優勝しました。関西最終で悔しい思いしたのでリベンジ果たせたんじゃないかと。',
+      description: 'ハヰカラ使節団で4年生全国大会を優勝しました。関西最終のリベンジを果たせたんじゃないかと。',
       image: '/takayaso_work_20211121.webp',
       category: 'アカペラ',
       date: '2021/11/21',
@@ -146,7 +168,7 @@ export default function WorksSection() {
     },
     {
       title: '『Lady Gaga Medley - Artpop / VoicePlay』が公開されました（ハヰカラ使節団）',
-      description: '「あえてのArtpop」が映像に。感慨深いですね。映像のコンセプトは"岩倉使節団"のオマージュで、ちゃんはまの背筋にも注目です。',
+      description: '「あえてのArtpop」を映像に。コンセプトは"岩倉使節団"のオマージュです。',
       image: '/takayaso_work_20211115.webp',
       category: 'アカペラ',
       date: '2021/11/15',
@@ -170,7 +192,7 @@ export default function WorksSection() {
     },
     {
       title: '『MotownFillie - The Filharmonic』が公開されました（ハヰカラ使節団）',
-      description: 'サークル内で、4年目同期バンドを結成しました。動画編集とTwitter広報やりました。お披露目動画は900いいねを超えましたやた。',
+      description: '新4年目同期バンドのお披露目動画です。動画編集とTwitter広報やりました。900いいねを超えました。',
       image: '/takayaso_work_20210615.webp',
       category: 'アカペラ',
       date: '2021/06/15',
@@ -186,7 +208,7 @@ export default function WorksSection() {
     },
     {
       title: '『The Sound of Silence / Pentatonix』が公開されました（PANDEMIX）',
-      description: '冬の六甲山を朝8時に登山し、凍えながら撮影しました。PANDEMIXとしては、2つ目の作品になります。これがハモネプ出演につながったらしい。',
+      description: '冬の六甲山で朝8時に撮影しました。PANDEMIXとしては、2つ目の作品になります。これがハモネプ出演につながったらしい。',
       image: '/takayaso_work_20210309.webp',
       category: 'アカペラ',
       date: '2021/03/09',
@@ -194,7 +216,7 @@ export default function WorksSection() {
     },
     {
       title: '『勿忘/Awesome City Club - sinfonia × ザ・コンティニューズ』の動画編集をしました',
-      description: 'サークルの先輩であるたいせーさんが所属する「ザ・コンティニューズ」と「sinfonia」とのコラボ動画を編集させていただきました。',
+      description: 'ハモネプでおなじみの「ザ・コンティニューズ」と「sinfonia」とのコラボ動画を編集させていただきました。',
       image: '/takayaso_work_20210228.webp',
       category: '動画編集',
       date: '2021/02/28',
@@ -210,7 +232,7 @@ export default function WorksSection() {
     },
     {
       title: '『【ほしのディスコ×ザ・コンティニューズ】Pretender/Official髭男dism』の動画編集をしました',
-      description: 'ハモネプ優勝グループ「ザ・コンティニューズ」の、ほしのディスコさんとのコラボ動画を編集させていただきました。',
+      description: 'ハモネプ優勝グループ「ザ・コンティニューズ」さんと、ほしのディスコさんとのコラボ動画を編集させていただきました。',
       image: '/takayaso_work_20201229.webp',
       category: '動画編集',
       date: '2020/12/29',
@@ -218,7 +240,7 @@ export default function WorksSection() {
     },
     {
       title: '『【わがくんコラボ】snow jam / Rin音』の動画編集をしました',
-      description: 'たいせーさんの、積分サークル・わがさんとのコラボ動画を編集させていただきました。初の委託の動画編集で緊張しました。',
+      description: '積分サークル・わがさんとのコラボ動画を編集させていただきました。初の委託の動画編集で緊張しました。',
       image: '/takayaso_work_20201002.webp',
       category: '動画編集',
       date: '2020/10/02',
@@ -227,11 +249,19 @@ export default function WorksSection() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
-      <div className="container mx-auto px-4">
+    <section 
+      ref={sectionRef}
+      id="projects" 
+      className="py-20 bg-gradient-to-br from-slate-50 to-gray-100"
+    >
+      <div 
+        className={`container mx-auto px-4 transition-all duration-1000 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+        }`}
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold text-center text-white mb-10 bg-black px-4 py-1 inline-block">
-            制作
+            記録
           </h2>
         </div>
         

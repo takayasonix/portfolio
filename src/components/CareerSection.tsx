@@ -1,6 +1,31 @@
+'use client';
+
 import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 export default function CareerSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   const timelineData = [
     {
       year: '2024 - ',
@@ -11,7 +36,7 @@ export default function CareerSection() {
     },
     {
       year: '2022 - 2024',
-      title: '神戸大学院',
+      title: '神戸大学 大学院',
       description: '理学研究科 惑星学専攻',
       type: 'education',
       image: '/takayaso-timeline-master.jpg'
@@ -22,12 +47,27 @@ export default function CareerSection() {
       description: '理学部 惑星学科',
       type: 'education',
       image: '/takayaso-timeline-bachelor.jpg'
+    },
+    {
+      year: '1999 - 2018',
+      title: '兵庫県 丹波市',
+      description: '出身',
+      type: 'birth',
+      image: '/takayaso-timeline-birth.jpg'
     }
   ];
 
   return (
-    <section id="timeline" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100">
-      <div className="container mx-auto px-4">
+    <section 
+      ref={sectionRef}
+      id="timeline" 
+      className="py-20 bg-gradient-to-br from-slate-50 to-gray-100"
+    >
+      <div 
+        className={`container mx-auto px-4 transition-all duration-1000 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
+        }`}
+      >
                 <div className="max-w-4xl mx-auto">
           <h2 className="text-xl font-bold text-center text-white mb-10 bg-black px-4 py-1 inline-block">
             経歴
@@ -43,7 +83,7 @@ export default function CareerSection() {
                 <div className="flex items-center">
                   {/* 左側：点（アイコン入り） */}
                   <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full mr-6 flex-shrink-0 flex items-center justify-center text-gray-700 text-lg shadow-lg border border-gray-200/50">
-                    {item.type === 'career' ? '🏢' : '🎓'}
+                    {item.type === 'career' ? '🏢' : item.type === 'birth' ? '🌾' : '🎓'}
                   </div>
                   {/* 右側：カード */}
                   <div className="flex-1">

@@ -12,7 +12,7 @@ export default function Navigation() {
     { name: '経歴', href: '#timeline' },
     { name: '趣味', href: '#interests' },
     { name: '記事', href: '#notes' },
-    { name: '制作', href: '#projects' }
+    { name: '記録', href: '#projects' }
   ];
 
   const scrollToSection = (href: string) => {

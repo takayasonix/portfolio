@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface NoteArticle {
   title: string;
@@ -19,7 +19,32 @@ interface ArticlesAccordionProps {
 
 export default function ArticlesAccordion({ articles }: ArticlesAccordionProps) {
   const [showAll, setShowAll] = useState(false);
+  const [visibleArticles, setVisibleArticles] = useState<number[]>([]);
   const initialShowCount = 4;
+  const articleRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.getAttribute('data-index') || '0');
+            setVisibleArticles(prev => [...prev, index]);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    articleRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, [articles]);
 
   return (
     <>
@@ -27,7 +52,15 @@ export default function ArticlesAccordion({ articles }: ArticlesAccordionProps) 
         {articles.slice(0, showAll ? articles.length : initialShowCount).map((article, index) => (
           <div
             key={index}
-            className="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+            ref={(el) => {
+              articleRefs.current[index] = el;
+            }}
+            data-index={index}
+            className={`block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-700 transform ${
+              visibleArticles.includes(index)
+                ? 'translate-y-0 opacity-100'
+                : 'translate-y-8 opacity-0'
+            }`}
           >
             <div className="relative h-48 bg-gray-200">
               {article.image ? (
