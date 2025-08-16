@@ -252,7 +252,7 @@ export default function WorksSection() {
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+                    <p className="text-xs text-gray-600 mb-4 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
