@@ -56,7 +56,7 @@ export default function ArticlesAccordion({ articles }: ArticlesAccordionProps) 
               articleRefs.current[index] = el;
             }}
             data-index={index}
-            className={`block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-700 transform ${
+            className={`block bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)] overflow-hidden hover:shadow-[12px_12px_24px_rgba(0,0,0,0.15),-12px_-12px_24px_rgba(255,255,255,0.9)] transition-all duration-700 transform ${
               visibleArticles.includes(index)
                 ? 'translate-y-0 opacity-100'
                 : 'translate-y-8 opacity-0'
@@ -93,7 +93,7 @@ export default function ArticlesAccordion({ articles }: ArticlesAccordionProps) 
                     }).replace(/\//g, '/')}
                   </p>
                   {article.source && (
-                                            <span className={`text-xs font-medium px-3 py-1 rounded-full shadow-sm ${article.color || 'bg-gray-100 text-black'}`}>
+                                            <span className={`text-xs font-medium px-3 py-1 rounded-full shadow-[2px_2px_4px_rgba(0,0,0,0.1),-2px_-2px_4px_rgba(255,255,255,0.8)] ${article.color || 'bg-gradient-to-r from-gray-200 to-gray-300 text-black'}`}>
                           {article.source}
                         </span>
                   )}
@@ -119,7 +119,7 @@ export default function ArticlesAccordion({ articles }: ArticlesAccordionProps) 
         <div className="text-center mt-8">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="text-gray-600 hover:text-gray-800 px-6 py-3 transition-colors duration-200 flex items-center mx-auto space-x-2"
+            className="text-gray-600 hover:text-gray-800 px-6 py-3 transition-colors duration-200 flex items-center mx-auto space-x-2 bg-gradient-to-r from-gray-100 to-gray-200 shadow-[4px_4px_8px_rgba(0,0,0,0.1),-4px_-4px_8px_rgba(255,255,255,0.8)] hover:shadow-[6px_6px_12px_rgba(0,0,0,0.15),-6px_-6px_12px_rgba(255,255,255,0.9)] rounded-lg"
           >
             <span>{showAll ? '記事を隠す' : `さらに${articles.length - initialShowCount}件表示する`}</span>
             <svg 

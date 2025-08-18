@@ -57,7 +57,7 @@ export default function HobbiesSection() {
     <section 
       ref={sectionRef}
       id="interests" 
-      className="py-20 bg-gradient-to-br from-slate-50 to-gray-100"
+      className="py-20 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300"
     >
       <div 
         className={`container mx-auto px-4 transition-all duration-1000 transform ${
@@ -65,7 +65,7 @@ export default function HobbiesSection() {
         }`}
       >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-bold text-center text-white mb-10 bg-black px-4 py-1 inline-block">
+          <h2 className="text-xl font-bold text-center text-white mb-10 bg-gradient-to-r from-gray-600 to-gray-700 shadow-[4px_4px_8px_rgba(0,0,0,0.2),inset_2px_2px_4px_rgba(255,255,255,0.1)] px-4 py-1 inline-block rounded-lg">
             趣味
           </h2>
         </div>
@@ -73,7 +73,7 @@ export default function HobbiesSection() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {interests.map((interest, index) => (
-              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 overflow-hidden hover:shadow-2xl transition-all duration-300">
+              <div key={index} className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)] overflow-hidden hover:shadow-[12px_12px_24px_rgba(0,0,0,0.15),-12px_-12px_24px_rgba(255,255,255,0.9)] transition-all duration-300">
                 {/* 画像 */}
                 <div className="w-full h-48 bg-gray-200 relative">
                   <Image

@@ -252,7 +252,7 @@ export default function WorksSection() {
     <section 
       ref={sectionRef}
       id="projects" 
-      className="py-20 bg-gradient-to-br from-slate-50 to-gray-100"
+      className="py-20 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300"
     >
       <div 
         className={`container mx-auto px-4 transition-all duration-1000 transform ${
@@ -260,7 +260,7 @@ export default function WorksSection() {
         }`}
       >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-bold text-center text-white mb-10 bg-black px-4 py-1 inline-block">
+          <h2 className="text-xl font-bold text-center text-white mb-10 bg-gradient-to-r from-gray-600 to-gray-700 shadow-[4px_4px_8px_rgba(0,0,0,0.2),inset_2px_2px_4px_rgba(255,255,255,0.1)] px-4 py-1 inline-block rounded-lg">
             記録
           </h2>
         </div>
@@ -268,7 +268,7 @@ export default function WorksSection() {
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {projects.slice(0, showAll ? projects.length : initialShowCount).map((project, index) => (
-              <div key={index} className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden border border-white/50 flex flex-col transition-all duration-300">
+              <div key={index} className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)] hover:shadow-[12px_12px_24px_rgba(0,0,0,0.15),-12px_-12px_24px_rgba(255,255,255,0.9)] overflow-hidden flex flex-col transition-all duration-300">
                 <div className="relative h-48 bg-gray-200">
                   <Image
                     src={project.image}
@@ -291,7 +291,7 @@ export default function WorksSection() {
                       <p className="text-sm text-gray-500">
                         {project.date}
                       </p>
-                      <span className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                      <span className="px-3 py-1 bg-gradient-to-r from-gray-200 to-gray-300 text-gray-700 text-xs rounded-full shadow-[2px_2px_4px_rgba(0,0,0,0.1),-2px_-2px_4px_rgba(255,255,255,0.8)]">
                         {project.category}
                       </span>
                     </div>
@@ -318,7 +318,7 @@ export default function WorksSection() {
             <div className="text-center mt-8">
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="text-gray-600 hover:text-gray-800 px-6 py-3 transition-colors duration-200 flex items-center mx-auto space-x-2"
+                className="text-gray-600 hover:text-gray-800 px-6 py-3 transition-colors duration-200 flex items-center mx-auto space-x-2 bg-gradient-to-r from-gray-100 to-gray-200 shadow-[4px_4px_8px_rgba(0,0,0,0.1),-4px_-4px_8px_rgba(255,255,255,0.8)] hover:shadow-[6px_6px_12px_rgba(0,0,0,0.15),-6px_-6px_12px_rgba(255,255,255,0.9)] rounded-lg"
               >
                 <span>{showAll ? '作品を隠す' : `さらに${projects.length - initialShowCount}件表示する`}</span>
                 <svg 

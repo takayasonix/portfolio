@@ -31,7 +31,7 @@ export default function HelloSection() {
     <section 
       ref={sectionRef}
       id="about" 
-      className="py-20 bg-gradient-to-br from-slate-50 to-gray-100"
+      className="py-20 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300"
     >
       <div 
         className={`container mx-auto px-4 transition-all duration-1000 transform ${
@@ -39,7 +39,7 @@ export default function HelloSection() {
         }`}
       >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-bold text-center text-white mb-10 bg-black px-4 py-1 inline-block">
+          <h2 className="text-xl font-bold text-center text-white mb-10 bg-gradient-to-r from-gray-600 to-gray-700 shadow-[4px_4px_8px_rgba(0,0,0,0.2),inset_2px_2px_4px_rgba(255,255,255,0.1)] px-4 py-1 inline-block rounded-lg">
             こんにちは
           </h2>
         </div>
@@ -47,7 +47,7 @@ export default function HelloSection() {
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
                          {/* 左側：画像 */}
                <div className="flex items-center justify-center">
-                 <div className="w-full aspect-video md:aspect-[4/3] bg-gradient-to-br from-gray-100 to-slate-200 rounded-2xl shadow-xl hover:shadow-2xl overflow-hidden transition-all duration-300">
+                 <div className="w-full aspect-video md:aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)] hover:shadow-[12px_12px_24px_rgba(0,0,0,0.15),-12px_-12px_24px_rgba(255,255,255,0.9)] overflow-hidden transition-all duration-300">
                    <Image
                      src="/takayaso_about_image.jpg"
                      alt="About画像"
@@ -60,7 +60,7 @@ export default function HelloSection() {
           
           {/* 右側：テキストカード */}
           <div className="flex items-center justify-center">
-            <div className="w-full aspect-video md:aspect-[4/3] bg-white/70 backdrop-blur-sm rounded-2xl p-5 md:p-5 shadow-xl hover:shadow-2xl flex flex-col justify-center transition-all duration-300">
+            <div className="w-full aspect-video md:aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl p-5 md:p-5 shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)] hover:shadow-[12px_12px_24px_rgba(0,0,0,0.15),-12px_-12px_24px_rgba(255,255,255,0.9)] flex flex-col justify-center transition-all duration-300">
 
               <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                 神戸大学大学院惑星学専攻を修了後、ディップ株式会社にプロダクト企画職で入社。<br />

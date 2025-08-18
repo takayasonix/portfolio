@@ -77,7 +77,7 @@ export default function PersonalitySection() {
     <section 
       ref={sectionRef}
       id="strengths" 
-      className="py-20 bg-gradient-to-br from-slate-50 to-gray-100"
+      className="py-20 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300"
     >
       <div 
         className={`container mx-auto px-4 transition-all duration-1000 transform ${
@@ -85,7 +85,7 @@ export default function PersonalitySection() {
         }`}
       >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-bold text-center text-white mb-10 bg-black px-4 py-1 inline-block">
+          <h2 className="text-xl font-bold text-center text-white mb-10 bg-gradient-to-r from-gray-600 to-gray-700 shadow-[4px_4px_8px_rgba(0,0,0,0.2),inset_2px_2px_4px_rgba(255,255,255,0.1)] px-4 py-1 inline-block rounded-lg">
             性格
           </h2>
           <p className="text-center text-gray-600 mb-8">
@@ -96,7 +96,7 @@ export default function PersonalitySection() {
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-9 gap-3 md:gap-4 justify-items-center">
             {strengths.map((strength, index) => (
-              <div key={index} className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 p-1.5 md:p-2 hover:shadow-2xl transition-all duration-300 w-24 md:w-22">
+              <div key={index} className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-[4px_4px_8px_rgba(0,0,0,0.1),-4px_-4px_8px_rgba(255,255,255,0.8)] p-1.5 md:p-2 hover:shadow-[6px_6px_12px_rgba(0,0,0,0.15),-6px_-6px_12px_rgba(255,255,255,0.9)] transition-all duration-300 w-24 md:w-22">
                 <div className="text-center">
                   <div className="text-2xl md:text-3xl mb-1.5 md:mb-2">{strength.icon}</div>
                   <h3 className="text-xs md:text-sm font-semibold text-gray-900 leading-tight">

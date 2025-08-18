@@ -58,7 +58,7 @@ export default function HeroSection() {
     <section 
       ref={sectionRef}
       id="hero" 
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-slate-100"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300"
     >
       <div 
         className={`container mx-auto px-4 text-center transition-all duration-1000 transform ${
@@ -68,7 +68,7 @@ export default function HeroSection() {
         <div className="mb-8">
           <div className="relative w-[200px] h-[200px] mx-auto mb-6">
             <div
-              className="absolute inset-0 rounded-full bg-gradient-to-br from-white/70 to-transparent blur-2xl"
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 shadow-[inset_4px_4px_8px_rgba(0,0,0,0.1),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]"
               aria-hidden="true"
             />
             <Image
@@ -76,12 +76,12 @@ export default function HeroSection() {
               alt="プロフィール画像"
               width={200}
               height={200}
-              className="rounded-full shadow-2xl hover:border-4 hover:border-white transition-all duration-300 relative z-10"
+              className="rounded-full shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)] hover:shadow-[12px_12px_24px_rgba(0,0,0,0.15),-12px_-12px_24px_rgba(255,255,255,0.9)] transition-all duration-300 relative z-10"
               priority
             />
           </div>
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
           大西 貴也
         </h1>
         <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-6">
@@ -101,7 +101,7 @@ export default function HeroSection() {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center justify-center p-3 md:p-4 w-16 h-16 md:w-20 md:h-20 aspect-square rounded-full border border-white/50 bg-white/70 backdrop-blur-sm shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 ${social.color} ${
+              className={`flex items-center justify-center p-3 md:p-4 w-16 h-16 md:w-20 md:h-20 aspect-square rounded-full shadow-[4px_4px_8px_rgba(0,0,0,0.1),-4px_-4px_8px_rgba(255,255,255,0.8)] hover:shadow-[6px_6px_12px_rgba(0,0,0,0.15),-6px_-6px_12px_rgba(255,255,255,0.9)] hover:-translate-y-1 transition-all duration-300 bg-gradient-to-br from-gray-100 to-gray-200 ${social.color} ${
                 social.name === '脳内' ? 'w-full md:w-auto md:px-6 col-span-3 md:col-span-1' : ''
               }`}
             >
