@@ -30,13 +30,13 @@ export default function HobbiesSection() {
     {
       title: '宇宙',
       description: '幼少期に星新一の作品で宇宙に思いを馳せ、『宇宙兄弟』に背中を押されて、大学院まで宇宙の研究をしていました。',
-      icon: '🚀',
+      icon: '🌌',
       image: '/takayaso-space.jpg'
     },
     {
       title: 'アカペラ',
       description: '大学では4年間アカペラサークルにいました。メンバーに恵まれ全国優勝やハモネプ出演を経験しました。',
-      icon: '🎵',
+      icon: '🎤',
       image: '/takayaso-acappella.jpg'
     },
     {
@@ -46,10 +46,10 @@ export default function HobbiesSection() {
       image: '/takayaso-keyboard.jpg'
     },
     {
-      title: 'Obsidian',
-      description: '記憶と思考をAIリーダブルな情報として入出力し、資産化することにハマっています。一部は[brain.takayaso.com]で公開しています。',
-      icon: '📝',
-      image: '/takayaso_obsidian.jpg'
+      title: '二郎系ラーメン',
+      description: '歴史を刻め六甲道店で育ちました。東京に来てもインスパイア系汁なし二郎を好んで食べています。',
+      icon: '🍜',
+      image: '/takayaso_ramen.jpg'
     }
   ];
 
