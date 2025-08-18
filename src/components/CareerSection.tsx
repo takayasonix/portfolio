@@ -53,7 +53,7 @@ export default function CareerSection() {
       title: '兵庫県 丹波市',
       description: '出身',
       type: 'birth',
-      image: '/takayaso-timeline-birth.jpg'
+      image: '/takayaso-timeline-home.jpg'
     }
   ];
 
