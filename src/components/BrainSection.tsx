@@ -16,17 +16,28 @@ export default function BrainSection({ username, repositoryName = 'obsidian-vaul
   useEffect(() => {
     const fetchRepositoryContributions = async () => {
       try {
+        console.log('Environment check:', {
+          NODE_ENV: process.env.NODE_ENV,
+          hasToken: !!process.env.NEXT_PUBLIC_GITHUB_TOKEN,
+          tokenLength: process.env.NEXT_PUBLIC_GITHUB_TOKEN?.length || 0
+        });
+        
         let data: RepositoryContributions | null = null;
         
-        if (process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_GITHUB_TOKEN) {
+        if (process.env.NEXT_PUBLIC_GITHUB_TOKEN) {
+          console.log('Attempting to fetch from GitHub API...');
           data = await getRepositoryContributions(username, repositoryName);
+          console.log('GitHub API response:', data);
+        } else {
+          console.log('No GitHub token found, will use dummy data');
         }
         
         if (!data) {
+          console.log('Using dummy data...');
           data = generateObsidianVaultDummyContributions();
         }
         
-        console.log('Generated data:', data);
+        console.log('Final data to display:', data);
         console.log('Weeks count:', data.contributions.weeks.length);
         console.log('First week:', data.contributions.weeks[0]);
         
@@ -148,7 +159,7 @@ export default function BrainSection({ username, repositoryName = 'obsidian-vaul
               </div>
 
               {/* 草の表示 */}
-              <div className="space-y-1 md:space-y-2 flex flex-col items-center flex-1">
+              <div className="space-y-1 md:space-y-2 flex flex-col items-center mb-4 md:mb-0">
                 {!contributions.contributions.weeks || contributions.contributions.weeks.length === 0 ? (
                   <div className="text-center py-3 md:py-4">
                     <p className="text-gray-600 text-sm md:text-base">データがありません</p>
