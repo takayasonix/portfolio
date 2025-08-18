@@ -11,6 +11,7 @@ export default function Navigation() {
     { name: '性格', href: '#strengths' },
     { name: '経歴', href: '#timeline' },
     { name: '趣味', href: '#interests' },
+    { name: '脳内', href: '#brain' },
     { name: '記事', href: '#notes' },
     { name: '記録', href: '#projects' }
   ];

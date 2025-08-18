@@ -10,7 +10,7 @@ export default async function ArticlesSection() {
     <section id="notes" className="py-20 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-xl font-bold text-center text-white mb-10 bg-gradient-to-r from-gray-600 to-gray-700 shadow-[4px_4px_8px_rgba(0,0,0,0.2),inset_2px_2px_4px_rgba(255,255,255,0.1)] px-4 py-1 inline-block rounded-lg">
+          <h2 className="text-xl font-bold text-center text-white mb-10 bg-gradient-to-r from-gray-700 to-gray-800 shadow-[4px_4px_8px_rgba(0,0,0,0.2),inset_2px_2px_4px_rgba(255,255,255,0.1)] px-4 py-1 inline-block rounded-none">
             記事
           </h2>
         </div>
