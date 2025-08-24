@@ -18,7 +18,7 @@ export default function Home() {
       <PersonalitySection />
       <CareerSection />
       <HobbiesSection />
-      <BrainSection username="takayasonix" repositoryName="obsidian-vault" />
+      <BrainSection username="takayasonix" repositoryName="takayaso_vault" />
       <ArticlesSection />
       <WorksSection />
     </main>

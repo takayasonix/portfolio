@@ -72,7 +72,7 @@ export default function HeroSection() {
               aria-hidden="true"
             />
             <Image
-              src="/takayaso_profile_image.jpg"
+              src="/takayaso_visual_square.jpg"
               alt="プロフィール画像"
               width={200}
               height={200}

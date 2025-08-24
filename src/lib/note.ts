@@ -21,7 +21,7 @@ const manualArticles: NoteArticle[] = [
     title: '「変だから採用」宇宙オタク院生がプロダクトオーナーに！成功の秘訣とは…？',
     link: 'https://dippeople.dip-net.jp/20152/',
     pubDate: '2025-05-08T00:00:00.000Z',
-    image: '/takayaso_image.jpg', // 実際に存在するファイル名に修正
+    image: '/takayaso_visual_rectangle.jpg', // 実際に存在するファイル名に修正
     source: 'dip people'
   }
 ];

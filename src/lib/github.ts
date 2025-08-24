@@ -70,20 +70,33 @@ export async function getGitHubContributions(username: string): Promise<Contribu
 export async function getRepositoryContributions(username: string, repositoryName: string): Promise<RepositoryContributions | null> {
   try {
     // シンプルなREST APIを使用
-    const response = await fetch(`https://api.github.com/repos/${username}/${repositoryName}/stats/commit_activity`, {
+    const apiUrl = `https://api.github.com/repos/${username}/${repositoryName}/stats/commit_activity`;
+    console.log('Fetching from URL:', apiUrl);
+    console.log('Using token:', process.env.NEXT_PUBLIC_GITHUB_TOKEN ? `${process.env.NEXT_PUBLIC_GITHUB_TOKEN.substring(0, 10)}...` : 'undefined');
+    
+    const response = await fetch(apiUrl, {
       headers: {
         'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
         'Accept': 'application/vnd.github.v3+json',
       },
     });
 
+    console.log('Response status:', response.status);
+    console.log('Response headers:', Object.fromEntries(response.headers.entries()));
+
     if (!response.ok) {
-      throw new Error(`GitHub API error: ${response.status}`);
+      const errorText = await response.text();
+      console.error(`GitHub API error: ${response.status}`, errorText);
+      throw new Error(`GitHub API error: ${response.status} - ${errorText}`);
     }
 
     const weeklyStats = await response.json();
+    console.log('Raw API response:', weeklyStats);
+    console.log('Is array?', Array.isArray(weeklyStats));
+    console.log('Length:', weeklyStats?.length);
     
     if (!Array.isArray(weeklyStats) || weeklyStats.length === 0) {
+      console.log('No data available - returning null');
       return null;
     }
 

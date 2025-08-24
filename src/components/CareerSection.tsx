@@ -32,28 +32,28 @@ export default function CareerSection() {
       title: 'ディップ株式会社',
       description: 'バイトル企画部',
       type: 'career',
-      image: '/takayaso-timeline-dip.jpg'
+      image: '/takayaso_timeline_dip.jpg'
     },
     {
       year: '2022 - 2024',
       title: '神戸大学 大学院',
       description: '理学研究科 惑星学専攻',
       type: 'education',
-      image: '/takayaso-timeline-master.jpg'
+      image: '/takayaso_timeline_master.jpg'
     },
     {
       year: '2018 - 2022',
       title: '神戸大学',
       description: '理学部 惑星学科',
       type: 'education',
-      image: '/takayaso-timeline-bachelor.jpg'
+      image: '/takayaso_timeline_bachelor.jpg'
     },
     {
       year: '1999 - 2018',
       title: '兵庫県 丹波市',
       description: '出身',
       type: 'birth',
-      image: '/takayaso-timeline-home.jpg'
+      image: '/takayaso_timeline_home.jpg'
     }
   ];
 

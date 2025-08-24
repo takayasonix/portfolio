@@ -31,25 +31,25 @@ export default function HobbiesSection() {
       title: '宇宙',
       description: '幼少期に星新一の作品で宇宙に思いを馳せ、『宇宙兄弟』に背中を押されて、大学院まで宇宙の研究をしていました。',
       icon: '🌌',
-      image: '/takayaso-space.jpg'
+      image: '/takayaso_hobby_space.jpg'
     },
     {
       title: 'アカペラ',
       description: '大学では4年間アカペラサークルにいました。メンバーに恵まれ全国優勝やハモネプ出演を経験しました。',
       icon: '🎤',
-      image: '/takayaso-acappella.jpg'
+      image: '/takayaso_hobby_acappella.jpg'
     },
     {
       title: '自作キーボード',
       description: '大学時代に3つのキーボードをビルドしました。左右交互打鍵に特化した、takayaso配列も考案しました。',
       icon: '⌨️',
-      image: '/takayaso-keyboard.jpg'
+      image: '/takayaso_hobby_keyboard.jpg'
     },
     {
-      title: '二郎系ラーメン',
-      description: '歴史を刻め六甲道店で育ちました。東京に来てもインスパイア系汁なし二郎を好んで食べています。',
-      icon: '🍜',
-      image: '/takayaso_ramen.jpg'
+      title: 'スパイスカレー',
+      description: '街のスパイスカレー屋さんを開拓するのが好きです。キーマカレーが特に好きです。',
+      icon: '🍛',
+      image: '/takayaso_hobby_curry.jpg'
     }
   ];
 

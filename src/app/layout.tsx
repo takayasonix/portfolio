@@ -14,9 +14,38 @@ const lato = Lato({
   weight: ["300", "400", "700"],
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const ogImage = "/takayaso_image.jpg";
+
 export const metadata: Metadata = {
   title: "Takaya Onishi - takayaso",
   description: "背が小さくて服が大きいプロダクトマネージャー見習いです。 好きな言葉は「サバイブ」。ネプチューンの名倉潤が11親等の親戚。",
+  metadataBase: new URL(siteUrl),
+  openGraph: {
+    title: "Takaya Onishi - takayaso",
+    description:
+      "背が小さくて服が大きいプロダクトマネージャー見習いです。 好きな言葉は「サバイブ」。ネプチューンの名倉潤が11親等の親戚。",
+    url: "/",
+    siteName: "Takaya Onishi - takayaso",
+    locale: "ja_JP",
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Takaya Onishi - takayaso",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Takaya Onishi - takayaso",
+    description:
+      "背が小さくて服が大きいプロダクトマネージャー見習いです。 好きな言葉は「サバイブ」。ネプチューンの名倉潤が11親等の親戚。",
+    images: [ogImage],
+  },
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({

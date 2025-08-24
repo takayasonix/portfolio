@@ -31,6 +31,14 @@ export default function WorksSection() {
   
   const projects = [
     {
+      title: 'takayaso.com をリニューアルしました。',
+      description: 'アニメを見ながらのVibe Codingだけで作成しました。NEXT.jsとTailwindCSSを使いました。ありがとうCursorくん。',
+      image: '/takayaso_work_20250823.png',
+      category: '仕事',
+      date: '2025/08/23',
+      link: '#'
+    },
+    {
       title: 'どるふぃんずさんの撮影をしました',
       description: 'ハモネプのご縁で、ヨネダ2000愛さんが所属する「どるふぃんず」さんの撮影・編集をさせていただきました。',
       image: '/takayaso_work_20240723.webp',

@@ -44,7 +44,8 @@ export default function BrainSection({ username, repositoryName = 'obsidian-vaul
         console.log('Environment check:', {
           NODE_ENV: process.env.NODE_ENV,
           hasToken: !!process.env.NEXT_PUBLIC_GITHUB_TOKEN,
-          tokenLength: process.env.NEXT_PUBLIC_GITHUB_TOKEN?.length || 0
+          tokenLength: process.env.NEXT_PUBLIC_GITHUB_TOKEN?.length || 0,
+          tokenPreview: process.env.NEXT_PUBLIC_GITHUB_TOKEN ? `${process.env.NEXT_PUBLIC_GITHUB_TOKEN.substring(0, 10)}...` : 'undefined'
         });
         
         let data: RepositoryContributions | null = null;
@@ -147,7 +148,7 @@ export default function BrainSection({ username, repositoryName = 'obsidian-vaul
                 {/* 画像 */}
                 <div className="w-full h-48 md:h-48 bg-gray-200 relative">
                   <Image
-                    src="/takayaso_obsidian.jpg"
+                    src="/takayaso_obsidian_official.jpg"
                     alt="Obsidian"
                     fill
                     className="object-cover"
