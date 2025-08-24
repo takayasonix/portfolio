@@ -15,7 +15,7 @@ const lato = Lato({
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-const ogImage = "/takayaso_image.jpg";
+const ogImage = "/takayaso_visual_rectangle.jpg";
 
 export const metadata: Metadata = {
   title: "Takaya Onishi - takayaso",
@@ -45,7 +45,12 @@ export const metadata: Metadata = {
       "背が小さくて服が大きいプロダクトマネージャー見習いです。 好きな言葉は「サバイブ」。ネプチューンの名倉潤が11親等の親戚。",
     images: [ogImage],
   },
-  icons: { icon: "/favicon.ico" },
+  icons: { 
+    icon: [
+      { url: "/takayaso_visual_logo.jpg", sizes: "32x32", type: "image/jpeg" },
+      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" }
+    ] 
+  },
 };
 
 export default function RootLayout({
